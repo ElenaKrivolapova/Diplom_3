@@ -130,6 +130,83 @@ class MainPage(BasePage):
             MainPageLocators.ORDER_NUMBER
         )
 
+    @allure.step('Открыть детали первой булки')
+    def open_first_bun_details(self):
+
+        self.open_ingredient_details(
+            MainPageLocators.FIRST_BUN
+        )
+
+    @allure.step('Добавить первую булку в заказ')
+    def add_first_bun_to_constructor(self):
+
+        self.add_ingredient_to_constructor(
+            MainPageLocators.FIRST_BUN
+        )
+
+    @allure.step('Добавить первый соус в заказ')
+    def add_first_sauce_to_constructor(self):
+
+        self.add_ingredient_to_constructor(
+            MainPageLocators.FIRST_SAUCE
+        )
+
+    @allure.step('Добавить первую начинку в заказ')
+    def add_first_filling_to_constructor(self):
+
+        self.add_ingredient_to_constructor(
+            MainPageLocators.FIRST_FILLING
+        )
+
+    @allure.step('Получить значение каунтера первой булки')
+    def get_first_bun_counter(self):
+
+        return self.get_counter_value(
+            MainPageLocators.FIRST_BUN_COUNTER
+        )
+
+    @allure.step('Получить значение каунтера первого соуса')
+    def get_first_sauce_counter(self):
+
+        return self.get_counter_value(
+            MainPageLocators.FIRST_SAUCE_COUNTER
+        )
+
+    @allure.step('Получить значение каунтера первой начинки')
+    def get_first_filling_counter(self):
+
+        return self.get_counter_value(
+            MainPageLocators.FIRST_FILLING_COUNTER
+        )
+
+    @allure.step('Прокрутить до первого соуса')
+    def scroll_to_first_sauce(self):
+
+        self.scroll_to_section(
+            MainPageLocators.FIRST_SAUCE
+        )
+
+    @allure.step('Прокрутить до первой начинки')
+    def scroll_to_first_filling(self):
+
+        self.scroll_to_section(
+            MainPageLocators.FIRST_FILLING
+        )
+
+    @allure.step('Дождаться кнопки Оформить заказ')
+    def wait_make_order_button(self):
+
+        return self.wait_visibility(
+            MainPageLocators.MAKE_ORDER_BUTTON
+        )
+
+    @allure.step('Проверить отображение номера заказа')
+    def is_order_number_visible(self):
+
+        return self.is_element_visible(
+            MainPageLocators.ORDER_NUMBER
+        )
+
     @allure.step('Закрыть модальное окно заказа')
     def close_order_modal(self):
 

@@ -72,7 +72,7 @@ class OrderFeedPage(BasePage):
     @allure.step('Проверить наличие номера заказа в ленте')
     def is_order_in_feed(self, order_number):
 
-        return order_number in self.driver.page_source
+        return order_number in self.get_page_source()
 
     @allure.step('Дождаться появления заказа в ленте')
     def wait_order_in_feed(self, order_number):

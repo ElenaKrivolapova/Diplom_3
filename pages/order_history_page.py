@@ -1,9 +1,7 @@
 import allure
 
 from pages.base_page import BasePage
-from locators.order_history_page_locators import (
-    OrderHistoryPageLocators
-)
+from locators.order_history_page_locators import OrderHistoryPageLocators
 
 
 class OrderHistoryPage(BasePage):
@@ -35,4 +33,4 @@ class OrderHistoryPage(BasePage):
     @allure.step('Проверить наличие заказа в истории')
     def is_order_present(self, order_number):
 
-        return order_number in self.driver.page_source
+        return order_number in self.get_page_source()

@@ -10,6 +10,7 @@ from urls import (
     FORGOT_PASSWORD_URL,
     RESET_PASSWORD_URL
 )
+from data import TEST_EMAIL, TEST_PASSWORD
 
 
 class TestForgotPassword:
@@ -42,7 +43,7 @@ class TestForgotPassword:
         reset_password_page = ResetPasswordPage(driver)
 
         forgot_password_page.open()
-        forgot_password_page.recover_password('test@mail.ru')
+        forgot_password_page.recover_password(TEST_EMAIL)
         forgot_password_page.wait_url_contains(RESET_PASSWORD_URL)
 
         assert RESET_PASSWORD_URL in reset_password_page.get_current_url()
@@ -56,10 +57,10 @@ class TestForgotPassword:
 
         # сначала переходим на reset-password через корректный пользовательский флоу
         forgot_password_page.open()
-        forgot_password_page.recover_password('test@mail.ru')
+        forgot_password_page.recover_password(TEST_EMAIL)
         forgot_password_page.wait_url_contains(RESET_PASSWORD_URL)
 
-        reset_password_page.set_password('password123')
+        reset_password_page.set_password(TEST_PASSWORD)
         reset_password_page.click_show_password()
 
         assert reset_password_page.is_password_field_active()

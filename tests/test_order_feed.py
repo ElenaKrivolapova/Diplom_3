@@ -6,7 +6,6 @@ from pages.profile_page import ProfilePage
 from pages.order_feed_page import OrderFeedPage
 from pages.order_history_page import OrderHistoryPage
 
-from locators.main_page_locators import MainPageLocators
 
 from urls import LOGIN_URL, PROFILE_URL
 
@@ -47,19 +46,11 @@ class TestOrderFeed:
 
         assert main_page.is_main_page_opened()
 
-        main_page.add_ingredient_to_constructor(
-            MainPageLocators.FIRST_BUN
-        )
+        main_page.add_first_bun_to_constructor()
 
-        assert (
-            main_page.get_counter_value(
-                MainPageLocators.FIRST_BUN_COUNTER
-            ) == 2
-        )
+        assert (main_page.get_first_bun_counter() == 2)
 
-        main_page.wait_visibility(
-            MainPageLocators.MAKE_ORDER_BUTTON
-        )
+        main_page.wait_make_order_button()
 
         main_page.click_make_order()
 
@@ -106,19 +97,11 @@ class TestOrderFeed:
             authorized_user['password']
         )
 
-        main_page.add_ingredient_to_constructor(
-            MainPageLocators.FIRST_BUN
-        )
+        main_page.add_first_bun_to_constructor()
 
-        assert (
-            main_page.get_counter_value(
-                MainPageLocators.FIRST_BUN_COUNTER
-            ) == 2
-        )
+        assert (main_page.get_first_bun_counter() == 2)
 
-        main_page.wait_visibility(
-            MainPageLocators.MAKE_ORDER_BUTTON
-        )
+        main_page.wait_make_order_button()
 
         main_page.click_make_order()
 
@@ -155,13 +138,9 @@ class TestOrderFeed:
             authorized_user['password']
         )
 
-        main_page.add_ingredient_to_constructor(
-            MainPageLocators.FIRST_BUN
-        )
+        main_page.add_first_bun_to_constructor()
 
-        main_page.wait_visibility(
-            MainPageLocators.MAKE_ORDER_BUTTON
-        )
+        main_page.wait_make_order_button()
 
         main_page.click_make_order()
 
@@ -193,13 +172,9 @@ class TestOrderFeed:
             authorized_user['password']
         )
 
-        main_page.add_ingredient_to_constructor(
-            MainPageLocators.FIRST_BUN
-        )
+        main_page.add_first_bun_to_constructor()
 
-        main_page.wait_visibility(
-            MainPageLocators.MAKE_ORDER_BUTTON
-        )
+        main_page.wait_make_order_button()
 
         main_page.click_make_order()
 

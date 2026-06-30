@@ -2,7 +2,6 @@ import allure
 
 from pages.base_page import BasePage
 from locators.profile_page_locators import ProfilePageLocators
-from locators.login_page_locators import LoginPageLocators
 
 
 class ProfilePage(BasePage):
@@ -44,10 +43,3 @@ class ProfilePage(BasePage):
     def is_order_history_opened(self):
 
         return self.is_order_history_active()
-
-    @allure.step('Проверить открытие страницы логина')
-    def is_login_page_opened(self):
-
-        return self.is_element_visible(
-            LoginPageLocators.LOGIN_BUTTON
-        )

@@ -139,6 +139,11 @@ class BasePage:
         # получить текущий URL
         return self.driver.current_url
 
+    def get_page_source(self):
+
+        # получить html страницы
+        return self.driver.page_source
+
     def wait_invisibility(
         self,
         locator,
@@ -181,7 +186,7 @@ class BasePage:
             self.driver,
             timeout
         ).until(
-            lambda driver: text in driver.page_source
+            lambda driver: text in self.get_page_source()
         )
     def wait_text_in_element(self, locator, text, timeout=20):
 
